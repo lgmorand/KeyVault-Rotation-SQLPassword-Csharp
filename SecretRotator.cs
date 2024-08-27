@@ -94,9 +94,9 @@ namespace Microsoft.KeyVault
             const int length = 60;
             
             byte[] randomBytes = new byte[length];
-		    RNGCryptoServiceProvider rngCrypt = new RNGCryptoServiceProvider();
-		    rngCrypt.GetBytes(randomBytes);
-		    return Convert.ToBase64String(randomBytes);
+            RandomNumberGenerator rngCrypt = RandomNumberGenerator.Create();
+            rngCrypt.GetBytes(randomBytes);
+            return Convert.ToBase64String(randomBytes);
         }
          private static void CheckServiceConnection(KeyVaultSecret secret)
         {
